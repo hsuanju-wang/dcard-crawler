@@ -32,7 +32,7 @@ def process_command():
 # 輸出位址
 import pymysql
 def connectToDB(forum):
-    db = pymysql.connect("140.117.69.136", "crawler", "lab_30241#", charset='utf8')
+    db = pymysql.connect("xxx", "xxx", "xxx", charset='utf8')
     cursor = db.cursor()
     sql = "CREATE DATABASE IF NOT EXISTS crawler_dcard_"+forum+" DEFAULT CHARACTER SET utf8"
     cursor.execute(sql)
@@ -135,15 +135,15 @@ def scrapDcard(post_alias,startDate,endDate):
 
 
 def scrapDcardAll(startDate,endDate):
-#scrapDcard("nsysu",startDate,endDate)
+    scrapDcard("nsysu",startDate,endDate)
     scrapDcard("girl",startDate,endDate)
-    #scrapDcard("entertainer",startDate,endDate)
-    #scrapDcard("funny",startDate,endDate)
-    #scrapDcard("mood",startDate,endDate)
-    #scrapDcard("trending",startDate,endDate)
-    #scrapDcard("rainbow",startDate,endDate)
-    #scrapDcard("relationship",startDate,endDate)
-    #scrapDcard("makeup",startDate,endDate)
+    scrapDcard("entertainer",startDate,endDate)
+    scrapDcard("funny",startDate,endDate)
+    scrapDcard("mood",startDate,endDate)
+    scrapDcard("trending",startDate,endDate)
+    scrapDcard("rainbow",startDate,endDate)
+    scrapDcard("relationship",startDate,endDate)
+    scrapDcard("makeup",startDate,endDate)
 
 
 # In[53]:
