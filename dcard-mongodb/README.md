@@ -21,7 +21,7 @@ scrapDcard中包含三個參數(post_alias,startDate,endDate,collection)：
 例:若想爬取2018年6月9日至2019年6月9日期間之文章，檔案存在本地端，31lab資料庫，dcard資料集，可輸入:
 
     import dcard_scraper
-    connectToDB("mongodb://localhost:27017/","31lab","dcard")
+    connectToDB("xxx","xxx","xxx")
     scrapDcard('makeup','20180609','20190609')
 
 ## 終端機下的使用方式
