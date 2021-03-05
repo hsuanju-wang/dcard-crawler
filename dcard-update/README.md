@@ -1,13 +1,9 @@
 
 # Dcard_Update
-
-更新Dcard 資料的爬蟲程式
+此程式用來更新Mysql中Dcard資料至最新資料。
 
 ## 使用方式
-此程式用來更新MYSQL中Dcard資料至最新資料。
-
-更新指定版面功能之函式為updateToLatest(forum)：於函式內依要求格式輸入指定的版，即可更新該文章至最新文章。
-更新所有版面功能之函式為updateAllToLatest():執行則可更新所有版面（中山大學、女孩、追星、有趣、心情、時事、彩虹、感情、美妝）的文章。
+**更新指定版面功能之函式為updateToLatest(forum)：** 於函式內依要求格式輸入指定的版，即可更新該文章至最新文章。
 
 updateToLatest包含一個參數(forum)：
 * forum : 預爬取資料之看板名稱，要求型態為字串,此參數是必要的。若輸入 all，則可更新所有版面之文章。
@@ -16,6 +12,8 @@ updateToLatest包含一個參數(forum)：
 
     import update_dcard
     updateToLatest('nsysu')
+
+**更新所有版面功能之函式為updateAllToLatest():** 執行則可更新所有版面（中山大學、女孩、追星、有趣、心情、時事、彩虹、感情、美妝）的文章。
 
 例:若想更新所有版至最新文章，可輸入:
 
