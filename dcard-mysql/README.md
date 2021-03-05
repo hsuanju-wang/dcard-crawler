@@ -1,7 +1,7 @@
 
 # Dcard_Mysql
 
-Dcard 網頁資料爬蟲輸入至Mysql的程式
+Dcard 網頁資料爬蟲程式，爬完後將資料存於Mysql。
 
 ## 使用方式
 
