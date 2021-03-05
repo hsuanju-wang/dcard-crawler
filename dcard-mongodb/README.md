@@ -1,28 +1,32 @@
 
-# Dcard_Scraper
+# Dcard_mongodb
 
-Dcard 網頁資料爬蟲程式
+Dcard 網頁資料爬蟲程式，爬完後將資料存於mongodb。
 
 ## 使用方式
 
-此程式用來爬取Dcard網頁的文章之文字資料。爬蟲功能之函式為scrapDcard(post_alias,startDate,endDate)，於函式內依要求格式輸入指定的版，指定的日期區間，即可爬取該日期區間內該版的所有文章。此程式需連接至mongodb，連接函式為connectToDB(mongoURL,dbName,collectionName)。其輸出欄位包括文章編號(_id)、看板名稱(forumAlias)、標題(artTitle)、日期(artDate)、網址(artUrl)、純文字結果(cleanResult)及做完jeiba的結果(result)。
+**scrapDcard(post_alias,startDate,endDate)：** 此函式用來實現爬蟲功能，於函式內依要求格式輸入指定的版，指定的日期區間，即可爬取該日期區間內該版的所有文章。 scrapDcard中包含三個參數：
+   * post_alias : 預爬取資料之看板名稱，要求型態為字串,此參數是必要的。
+  * startDate : 爬取之資料的起始日期，要求型態為字串，輸入西洋年月日格式為YYYY-MM-DD，此參數是必要的。
+  * endDate : 爬取之資料的結束日期，要求型態為字串，輸入西洋年月日格式為YYYY-MM-DD，此參數是必要的。
+  * collection : 資料集，connectToDB（）的回傳值。
 
- connectToDB中包含三個參數(mongoURL,dbName,collectionName)：
+<br>
+
+**connectToDB(mongoURL,dbName,collectionName)：** 此函式用來連接mongodb，為其輸出欄位包括文章編號(_id)、看板名稱(forumAlias)、標題(artTitle)、日期(artDate)、網址(artUrl)、純文字結果(cleanResult)及做完jeiba的結果(result)。 connectToDB中包含三個參數：
 * mongoURL : 資料庫網址，要求型態為字串，此參數是必要的。
 * dbName : 資料庫名稱，要求型態為字串，此參數是必要的。
 * collectionName : 資料及名稱，要求型態為字串，此參數是必要的。
 
-scrapDcard中包含三個參數(post_alias,startDate,endDate,collection)：
-* post_alias : 預爬取資料之看板名稱，要求型態為字串,此參數是必要的。
-* startDate : 爬取之資料的起始日期，要求型態為字串，輸入西洋年月日格式為YYYY-MM-DD，此參數是必要的。
-* endDate : 爬取之資料的結束日期，要求型態為字串，輸入西洋年月日格式為YYYY-MM-DD，此參數是必要的。
-* collection : 資料集，connectToDB（）的回傳值。
+<br>
 
-例:若想爬取2018年6月9日至2019年6月9日期間之文章，檔案存在本地端，31lab資料庫，dcard資料集，可輸入:
+**使用範例:** 若想爬取2018年6月9日至2019年6月9日期間之文章，檔案存在本地端，31lab資料庫，dcard資料集，可輸入:
+```
+import dcard_scraper
+connectToDB("xxx","xxx","xxx")
+scrapDcard('makeup','20180609','20190609')
+```
 
-    import dcard_scraper
-    connectToDB("xxx","xxx","xxx")
-    scrapDcard('makeup','20180609','20190609')
 
 ## 終端機下的使用方式
 
@@ -108,6 +112,3 @@ dcard一次最多同時爬100則。
 * argparse
 
 
-```python
-
-```
