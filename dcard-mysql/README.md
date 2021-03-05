@@ -1,16 +1,11 @@
 
 # Dcard_Mysql
 
-Dcard 網頁資料爬蟲輸入至MYSQL的程式
+Dcard 網頁資料爬蟲輸入至Mysql的程式
 
 ## 使用方式
-此程式用來爬取Dcard網頁的文章之文字資料並輸入至MYSQL。
 
-爬蟲功能之函式為scrapDcard(post_alias,startDate,endDate)：於函式內依要求格式輸入指定的版，指定的日期區間，即可爬取該日期區間內該版的所有文章。若startDate輸入-1，則從最早的文章開始爬，若endDate輸入-1，則爬至最新文章。
-
-不指定版面爬蟲功能之函式scrapDcardAll(startDate,endDate)：startDate,endDate輸入方式如上述。取中山大學、女孩、追星、有趣、心情、時事、彩虹、感情、美妝，這9個比較熱門的版進行爬蟲。
-
-輸入至MYSQL：database名稱是依照版面，如： "crawler_dcard_nsysu", "crawler_dcard_girl"，table名稱是依照版面及年份，如："nsysu_2018","nsysu_2019"。若有已存在的database/table，則將爬到的資料直接新增進database/table，若尚未建立database/table，則會自動新增對應的database/table。
+**爬蟲功能之函式為scrapDcard(post_alias,startDate,endDate)**：於函式內依要求格式輸入指定的版，指定的日期區間，即可爬取該日期區間內該版的所有文章。若startDate輸入-1，則從最早的文章開始爬，若endDate輸入-1，則爬至最新文章。
 
 scrapDcard中包含三個參數(post_alias,startDate,endDate,collection)：
 * post_alias : 預爬取資料之看板名稱，要求型態為字串,此參數是必要的。
@@ -27,6 +22,10 @@ scrapDcard中包含三個參數(post_alias,startDate,endDate,collection)：
     import dcard_mysql
     scrapeDcard('nsysu',-1,-1)
 
+<br>
+
+**不指定版面爬蟲功能之函式scrapDcardAll(startDate,endDate)：** startDate, endDate輸入方式如上述。取中山大學、女孩、追星、有趣、心情、時事、彩虹、感情、美妝，這9個比較熱門的版進行爬蟲。
+
 scrapDcardAll包含2個參數(startDate,endDate)：
 * startDate : 爬取之資料的起始日期，要求型態為字串，輸入西洋年月日格式為YYYY-MM-DD，輸入-1，則從最早的文章開始爬，此參數是必要的。
 * endDate : 爬取之資料的結束日期，要求型態為字串，輸入西洋年月日格式為YYYY-MM-DD，輸入-1，則爬至最新文章，此參數是必要的。
@@ -40,6 +39,16 @@ scrapDcardAll包含2個參數(startDate,endDate)：
 
     import dcard_mysql
     scrapeDcardAll(-1,-1)
+
+<br>
+
+**輸入至mysql：**
+- database名稱是依照版面，如： "crawler_dcard_nsysu", "crawler_dcard_girl"
+- table名稱是依照版面及年份，如："nsysu_2018","nsysu_2019"
+- 若有已存在的database/table，則將爬到的資料直接新增進database/table
+- 若尚未建立database/table，則會自動新增對應的database/table。
+
+
 
 ## 終端機下的使用方式
 
